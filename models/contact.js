@@ -10,7 +10,7 @@ const Contact = sequelize.define("Contact", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  suject: {
+  subject: {
     type: DataTypes.STRING,
     allowNull: true,
   },

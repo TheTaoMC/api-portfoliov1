@@ -2,16 +2,16 @@ const Contact = require("../models/contact");
 
 exports.createContact = async (req, res) => {
   try {
-    const { name, email, message } = req.body;
+    const { name, email, subject, message } = req.body;
 
     // เช็คค่าที่ได้รับมาว่าไม่เป็น null หรือ undefined
-    if (!name || !email || !message) {
+    if (!name || !email) {
       return res
         .status(400)
-        .json({ error: "Name, email, and message are required" });
+        .json({ error: "Name, email,Subject, and message are required" });
     }
 
-    const contact = await Contact.create({ name, email, message });
+    const contact = await Contact.create({ name, email, subject, message });
     res.status(201).json(contact);
   } catch (error) {
     res.status(500).json({ error: error.message });
