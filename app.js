@@ -20,7 +20,7 @@ const corsOptions = {
 };
 
 /* const corsOptions = {
-  origin: ["http://localhost:3000", "https://thetaomc.xyz"], // อนุญาตให้เรียกใช้จาก origin นี้
+  origin: ["http://localhost:3002", "https://thetaomc.xyz"], // อนุญาตให้เรียกใช้จาก origin นี้
   optionsSuccessStatus: 200,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: "Content-Type,Accept",
@@ -38,6 +38,7 @@ app.use(express.json());
 
 app.use("/api", userRoutes);
 app.use("/api", contactRoutes);
+app.use("/api", userRoutes);
 
 // รองรับ preflight requests
 app.options("*", cors(corsOptions));
