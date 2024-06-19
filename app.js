@@ -3,6 +3,7 @@ const cors = require("cors");
 const sequelize = require("./config/database");
 const userRoutes = require("./routes/userRoutes");
 const contactRoutes = require("./routes/contactRoutes");
+const aboutmeRoutes = require("./routes/aboutmeRoutes");
 const app = express();
 
 const allowedOrigins = ["http://localhost:3000", "https://thetaomc.xyz"];
@@ -38,12 +39,12 @@ app.use(express.json());
 
 app.use("/api", userRoutes);
 app.use("/api", contactRoutes);
-app.use("/api", userRoutes);
+app.use("/api", aboutmeRoutes);
 
 // รองรับ preflight requests
 app.options("*", cors(corsOptions));
 
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3003;
 
 sequelize
   .sync()
